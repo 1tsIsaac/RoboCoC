@@ -1,2 +1,2 @@
 # RoboCoC
-Source for the RoboCoC, the Cult of Coffee discord bot.
+Source for RoboCoC, the Cult of Coffee discord bot.
