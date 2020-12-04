@@ -1,0 +1,13 @@
+{
+    "bot-settings": {
+        "prefix": "coc!",
+        "statuses": ["CoC is big, CoC is flaccid.", "Fun fact: Coffee helped the industrial revolution.", "N1ncham1lk is babyman.", "Contact ItsIsaac#0001 if you find bugs, he'll eat em.", "Coffee-Beast"],
+        "token": "TOKEN",
+        "suggestions-channel-id": 777177299518488586,
+        "moderator-role-id": 777146108970795023,
+        "tenor-token": "TOKEN"
+    },
+    "disabled-commands": [
+        
+    ]
+}
