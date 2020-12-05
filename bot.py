@@ -68,6 +68,45 @@ bot.remove_command("help") # Probably better ways to do this
 
 
 
+# Error handler
+@bot.event
+async def on_command_error(ctx, error):
+    # Check if the error is a specific type and tell the user accordingly
+    if isinstance(error.original, SuggestionContentLengthError):
+        embed = discord.Embed(description="Suggestion too short/long.\nYour suggestion must be <10 characters and >1200 characters.")
+        embed = simplifyEmbed(ctx, embed, False)
+        return await ctx.send(embed=embed)
+
+    elif isinstance(error.original, SuggestionContentExplicitError):
+        embed = discord.Embed(description="Your suggestion contains explicit language!")
+        embed = simplifyEmbed(ctx, embed, False)
+        return await ctx.send(embed=embed)
+
+    elif isinstance(error.original, SuggestionIdInvalid):
+        embed = discord.Embed(description="That suggestion id is invalid!")
+        embed = simplifyEmbed(ctx, embed, False)
+        return await ctx.send(embed=embed)
+
+    elif isinstance(error.original, SuggestionNotFoundError):
+        embed = discord.Embed(description="That suggestion does not exist!")
+        embed = simplifyEmbed(ctx, embed, False)
+        return await ctx.send(embed=embed)
+
+    elif isinstance(error.original, commands.MissingAnyRole):
+        embed = discord.Embed(description="You do not have sufficient permissions to run that command!")
+        embed = simplifyEmbed(ctx, embed, False)
+        return await ctx.send(embed=embed)
+
+    else:
+        print(error)
+        embed = discord.Embed(description="Unknown error! Make sure the bot has the correct permissions!")
+        embed = simplifyEmbed(ctx, embed, False)
+        return await ctx.send(embed=embed)
+
+
+
+
+
 # When bot connects print it in the command line
 @bot.event
 async def on_connect():
