@@ -300,7 +300,11 @@ async def eightball(ctx, *, question):
 # Source command
 @bot.command(aliases=["details"])
 async def source(ctx):
-    return
+    # Send link to github in embed
+    embed = discord.Embed(title="https://github.com/1tsIsaac/RoboCoC", description="Other cool peoples:\n[ItsIsaac's Github](https://github.com/1tsIsaac)\n[Laith's Github](https://github.com/LaithDevelopment)")
+    embed = simplifyEmbed(ctx, embed, True)
+
+    await ctx.send(embed=embed)
 
 
 
