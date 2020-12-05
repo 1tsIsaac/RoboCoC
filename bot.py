@@ -150,10 +150,13 @@ async def help(ctx):
     `{0}suggest <suggestion>` - Creates a suggestion, places it in <#{1}>.
     `{0}delsuggest <suggestion-id>` - Deletes a suggestion via ID, mods can delete any.
     `{0}ping` - Returns the bot's ping.
+    `{0}source` - The source for the bot.
 
     **CoC Fun**
     `{0}explode <@user>` - User go boom.
     `{0}kiss <@user>` - Kiss a user, uwu owo rawr- I think someone heard me..
+    `{0}8ball <question>` - Let the magic 8ball decide.
+    
     """.format(config["prefix"], config["suggestions-channel-id"])
     
     # Send in embed
@@ -270,6 +273,34 @@ async def smooch(ctx, user : discord.Member):
     embed.set_image(url=gif)
 
     await ctx.send(embed=embed)
+
+
+
+
+
+# 8ball command
+@bot.command(aliases=["8ball"])
+async def eightball(ctx, *, question):
+    ### NOTE - Make sure to keep an even amount of yes and no responses ###
+    ballResponses = ["Yes.", "No.", "Undecided.", "In the future, perhaps.", "Without a doubt.", "No, lol.", "Pie says yes so it must be yes.", "Pie says no so it must be no."]
+
+    # Pick random response
+    response = random.choice(ballResponses)
+
+    # Send response in embed
+    embed = discord.Embed(title=f"Answer: {response}", description=f"Original question: '{question}'")
+    embed = simplifyEmbed(ctx, embed, True)
+
+    await ctx.send(embed=embed)
+
+
+
+
+
+# Source command
+@bot.command(aliases=["details"])
+async def source(ctx):
+    return
 
 
 
