@@ -43,8 +43,8 @@ def checkExplicit(suggestion: str):
 def simplifyEmbed(ctx, embed : discord.Embed, success : bool):
     ### NOTE - This might be modified or fully removed sooner or later ###
     # Define discord colours
-    success_colour = discord.Colour(16752592)
-    error_colour = discord.Colour(13421772)
+    success_colour = discord.Colour(config["success-colour-decimal"])
+    error_colour = discord.Colour(config["error-colour-decimal"])
 
     # Set colour of embed
     if success == True:
