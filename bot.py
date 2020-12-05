@@ -41,10 +41,10 @@ def checkExplicit(suggestion: str):
 
 # Used to simplify embeds and create cleaner code
 def simplifyEmbed(ctx, embed : discord.Embed, success : bool):
-    ### NOTE - This might be modified or fully removed sooner or later
+    ### NOTE - This might be modified or fully removed sooner or later ###
     # Define discord colours
-    success_colour = discord.Colour(8978339)
-    error_colour = discord.Colour(16746632)
+    success_colour = discord.Colour(16752592)
+    error_colour = discord.Colour(13421772)
 
     # Set colour of embed
     if success == True:
@@ -53,7 +53,7 @@ def simplifyEmbed(ctx, embed : discord.Embed, success : bool):
         embed.colour = error_colour
 
     embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
-    embed.set_footer(text=f"Today at {datetime.datetime.now().strftime('%H:%M')} [GB]")
+    embed.set_footer(text=f"Today at {datetime.datetime.now().strftime('%H:%M:%S')} [GB]")
 
     return embed
 
