@@ -53,7 +53,7 @@ def simplifyEmbed(ctx, embed : discord.Embed, success : bool):
         embed.colour = error_colour
 
     embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
-    embed.set_footer(text=f"Today at {datetime.datetime.now().strftime('%H:%M:%S')} [GB]")
+    embed.set_footer(text=f"Today at {datetime.datetime.now().strftime('%H:%M')} [UK]")
 
     return embed
 
@@ -288,7 +288,7 @@ async def eightball(ctx, *, question):
     response = random.choice(ballResponses)
 
     # Send response in embed
-    embed = discord.Embed(title=f"Answer: {response}", description=f"Original question: '{question}'")
+    embed = discord.Embed(title=response, description=f"Original question: `'{question}'`")
     embed = simplifyEmbed(ctx, embed, True)
 
     await ctx.send(embed=embed)
