@@ -151,12 +151,12 @@ async def help(ctx):
     `{0}delsuggest <suggestion-id>` - Deletes a suggestion via ID, mods can delete any.
     `{0}ping` - Returns the bot's ping.
     `{0}source` - The source for the bot.
+    `{0}invite` - Returns the server invite.
 
     **CoC Fun**
     `{0}explode <@user>` - User go boom.
     `{0}kiss <@user>` - Kiss a user, uwu owo rawr- I think someone heard me..
     `{0}8ball <question>` - Let the magic 8ball decide.
-    
     """.format(config["prefix"], config["suggestions-channel-id"])
     
     # Send in embed
@@ -306,6 +306,16 @@ async def source(ctx):
 
     await ctx.send(embed=embed)
 
+
+
+
+# Returns server invite
+@bot.command()
+async def invite(ctx):
+    embed = discord.Embed(title="https://discord.gg/FdfjD8Mp9C")
+    embed = simplifyEmbed(ctx, embed, True)
+
+    await ctx.send(embed=embed)
 
 
 
